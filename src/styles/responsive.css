@@ -1,0 +1,165 @@
+/* ===== RESPONSIVO ABOUT ===== */
+
+@media (max-width: 900px) {
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .counters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .counters-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 900px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text {
+    transform: none;
+  }
+
+  .hero-with-photo::before {
+    display: none; /* remove linha no mobile */
+  }
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    justify-content: center;
+  }
+
+  .hability-list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-with-photo {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .hero {
+    align-items: center;
+  }
+
+  .perfil {
+    width: 180px;
+    height: 180px;
+    animation-duration: 4.5s; /* glow mais suave no mobile */
+  }
+
+  .buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .contacts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ===== REDUZ MOTION NO MOBILE ===== */
+
+@media (max-width: 600px) {
+  body {
+    animation: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 900px) {
+  .workstyle-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

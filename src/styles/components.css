@@ -1,0 +1,180 @@
+/* ===== BUTTONS ===== */
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.btn {
+  padding: 12px 26px;
+  background: #38bdf8;
+  color: #0f172a;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  width: auto;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.35);
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid #38bdf8;
+  color: #38bdf8;
+}
+
+/* ================= EXTRA UX / MOTION ================= */
+
+/* ===== FUNDO ANIMADO ===== */
+.typewriter {
+  color: #38bdf8;
+}
+
+body {
+  background-size: 200% 200%;
+  animation: bgMove 18s ease infinite;
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== TODAS AS SECTIONS EM TELA CHEIA ===== */
+
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== SCROLL SNAP CONTAINER ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-snap-type: y proximity;
+  overflow-y: auto;
+}
+
+/* ===== SCROLL INDICATOR ===== */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.75;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: fadeIn 1.8s ease forwards;
+}
+
+.scroll-indicator span {
+  font-size: 11px;
+}
+
+.scroll-indicator::after {
+  content: "↓";
+  font-size: 18px;
+  animation: bounce 1.6s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+}
+
+/* ===== REVEAL ON SCROLL ===== */
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(42px);
+  transition: 0.9s ease;
+}
+
+.section-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== MODAL ===== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 6, 23, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #020617;
+  padding: 28px;
+  border-radius: 14px;
+  max-width: 420px;
+  width: 92%;
+  text-align: center;
+  box-shadow: 0 0 32px rgba(56, 189, 248, 0.45);
+}
+
+.modal-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(56, 189, 248, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.modal-bar-fill {
+  height: 100%;
+  background: #38bdf8;
+  border-radius: 8px;
+  animation: growBar 1.2s ease forwards;
+}
+
+.modal-percent {
+  font-weight: 600;
+  opacity: 0.8;
+}
