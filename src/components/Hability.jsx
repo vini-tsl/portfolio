@@ -1,5 +1,6 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { FaCode, FaServer, FaPaintBrush, FaTimes } from "react-icons/fa";
+import { createPortal } from "react-dom";
 
 import reactLogo from "../assets/react.png";
 import pythonLogo from "../assets/python.png";
@@ -142,6 +143,18 @@ function Hability() {
     return skills.filter((s) => s.category === activeCategory);
   }, [activeCategory]);
 
+  useEffect(() => {
+      if (selectedSkill) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }, [selectedSkill]);
+
   return (
     <section id="habilidades" className="hab-section">
       <h2 className="hab-title">Minhas Habilidades</h2>
@@ -162,7 +175,7 @@ function Hability() {
           );
         })}
       </div>
-
+        
       {/* ===== GRID ===== */}
       <div className="skills-grid">
         {filteredSkills.map((skill, index) => (
@@ -178,118 +191,119 @@ function Hability() {
         ))}
       </div>
 
-      {/* ===== MODAL PREMIUM ===== */}
-      {selectedSkill && (
-      <div
-        className="hab-modal-overlay"
-        onClick={() => setSelectedSkill(null)}
-      >
-        <div
-          className="hab-modal-pro"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <button
-            className="hab-modal-close"
+      {/* ===== MODAL ===== */}
+      {selectedSkill &&
+        createPortal(
+          <div
+            className="hab-modal-overlay"
             onClick={() => setSelectedSkill(null)}
           >
-            <FaTimes />
-          </button>
+            <div
+              className="hab-modal-pro"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="hab-modal-close"
+                onClick={() => setSelectedSkill(null)}
+              >
+                <FaTimes />
+              </button>
 
-          {/* HEADER */}
-          <div className="modal-pro-header">
-            <img src={selectedSkill.image} alt={selectedSkill.name} />
-            <div>
-              <h3>{selectedSkill.name}</h3>
-              <div className="badge-row">
-                <span className="badge-cat">
-                  {selectedSkill.category}
-                </span>
-                <span className="badge-level">
-                  {selectedSkill.level}
-                </span>
+              {/* HEADER */}
+              <div className="modal-pro-header">
+                <img src={selectedSkill.image} alt={selectedSkill.name} />
+                <div>
+                  <h3>{selectedSkill.name}</h3>
+                  <div className="badge-row">
+                    <span className="badge-cat">
+                      {selectedSkill.category}
+                    </span>
+                    <span className="badge-level">
+                      {selectedSkill.level}
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          {/* TABS */}
-          <div className="modal-tabs">
-            <button
-              className={activeTab === "overview" ? "active" : ""}
-              onClick={() => setActiveTab("overview")}
-            >
-              Overview
-            </button>
+              {/* TABS */}
+              <div className="modal-tabs">
+                <button
+                  className={activeTab === "overview" ? "active" : ""}
+                  onClick={() => setActiveTab("overview")}
+                >
+                  Overview
+                </button>
 
-            <button
-              className={activeTab === "timeline" ? "active" : ""}
-              onClick={() => setActiveTab("timeline")}
-            >
-              Evolução
-            </button>
-          </div>
+                <button
+                  className={activeTab === "timeline" ? "active" : ""}
+                  onClick={() => setActiveTab("timeline")}
+                >
+                  Evolução
+                </button>
+              </div>
 
-          {/* CONTENT */}
-          <div className="tab-content">
-            {activeTab === "overview" && (
-              <>
-                <div className="tech-grid">
-                  <div>
-                    <span>Categoria</span>
-                    <strong>{selectedSkill.category}</strong>
-                  </div>
+              {/* CONTENT */}
+              <div className="tab-content">
+                {activeTab === "overview" && (
+                  <>
+                    <div className="tech-grid">
+                      <div>
+                        <span>Categoria</span>
+                        <strong>{selectedSkill.category}</strong>
+                      </div>
 
-                  <div>
-                    <span>Nível</span>
-                    <strong>{selectedSkill.level}</strong>
-                  </div>
+                      <div>
+                        <span>Nível</span>
+                        <strong>{selectedSkill.level}</strong>
+                      </div>
 
-                  <div>
-                    <span>Proficiência</span>
-                    <strong>{selectedSkill.percent}%</strong>
-                  </div>
-                </div>
-
-                <div className="pro-bar">
-                  <div
-                    className="pro-bar-fill"
-                    style={{ width: selectedSkill.percent + "%" }}
-                  >
-                    {selectedSkill.percent}%
-                  </div>
-                </div>
-
-                <div className="modal-section">
-                  <h4>Aplicações práticas</h4>
-                  <p>{selectedSkill.description}</p>
-                </div>
-              </>
-            )}
-
-            {activeTab === "timeline" && (
-              <div className="skill-timeline">
-                {selectedSkill.timeline?.map((step, i) => (
-                  <div key={i} className="skill-tl-item">
-                    <div className="skill-tl-dot" />
-                    <div>
-                      <strong>{step.year}</strong>
-                      <p>{step.text}</p>
+                      <div>
+                        <span>Proficiência</span>
+                        <strong>{selectedSkill.percent}%</strong>
+                      </div>
                     </div>
+
+                    <div className="pro-bar">
+                      <div
+                        className="pro-bar-fill"
+                        style={{ width: selectedSkill.percent + "%" }}
+                      >
+                        {selectedSkill.percent}%
+                      </div>
+                    </div>
+
+                    <div className="modal-section">
+                      <h4>Aplicações práticas</h4>
+                      <p>{selectedSkill.description}</p>
+                    </div>
+                  </>
+                )}
+
+                {activeTab === "timeline" && (
+                  <div className="skill-timeline">
+                    {selectedSkill.timeline?.map((step, i) => (
+                      <div key={i} className="skill-tl-item">
+                        <div className="skill-tl-dot" />
+                        <div>
+                          <strong>{step.year}</strong>
+                          <p>{step.text}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            )}
-          </div>
 
-          <button
-            className="modal-main-btn"
-            onClick={() => setSelectedSkill(null)}
-          >
-            Voltar
-          </button>
-        </div>
-      </div>
-    )}
-
+              <button
+                className="modal-main-btn"
+                onClick={() => setSelectedSkill(null)}
+              >
+                Voltar
+              </button>
+            </div>
+          </div>,
+          document.body
+        )}
 
     </section>
   );
