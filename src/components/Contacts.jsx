@@ -5,22 +5,22 @@ function Contacts() {
     {
       name: "LinkedIn",
       icon: <FaLinkedin />,
-      link: "https://www.linkedin.com/in/seulinkedin",
+      link: "https://www.linkedin.com/in/vin%C3%ADcius-teixeira-6231a4352/",
     },
     {
       name: "GitHub",
       icon: <FaGithub />,
-      link: "https://github.com/seurepositorio",
+      link: "https://github.com/vini-tsl",
     },
     {
       name: "Instagram",
       icon: <FaInstagram />,
-      link: "https://www.instagram.com/seuinstagram",
+      link: "https://www.instagram.com/vini_tsl/",
     },
     {
       name: "Email",
       icon: <FaEnvelope />,
-      link: "mailto:seuemail@example.com",
+      link: "mailto:viniciusteixeira022@gmail.com",
     },
   ];
 
