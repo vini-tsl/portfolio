@@ -23,9 +23,9 @@ const skills = [
       "Integração de sistemas, automação de tarefas, scripts e lógica de backend.",
     image: pythonLogo,
     timeline: [
-    { year: "2023", text: "Lógica e scripts iniciais" },
-    { year: "2024", text: "Automação e Flask" },
-    { year: "2025", text: "APIs e integrações" },
+    { year: "15/03/2023", text: "Lógica e scripts iniciais" },
+    { year: "30/05/2023", text: "Estrutura de Repetição" },
+    { year: "25/07/2023", text: "Laços de Repetição" },
   ]
   },
   {
@@ -49,9 +49,9 @@ const skills = [
     description: "Estrutura semântica, acessibilidade e base de layouts web.",
     image: htmlLogo,
     timeline: [
-    { year: "2023", text: "Lógica e scripts iniciais" },
-    { year: "2024", text: "Automação e Flask" },
-    { year: "2025", text: "APIs e integrações" },
+    { year: "30/10/2022", text: "Introdução aos elementos html" },
+    { year: "02/03/2024", text: "CSS básico e HTML aprofundado" },
+    { year: "12/05/2025", text: "JS básico" },
   ]
   },
   {
@@ -62,9 +62,9 @@ const skills = [
     description: "Layouts responsivos, animações, efeitos visuais e dark UI.",
     image: cssLogo,
     timeline: [
-    { year: "2023", text: "Lógica e scripts iniciais" },
-    { year: "2024", text: "Automação e Flask" },
-    { year: "2025", text: "APIs e integrações" },
+    { year: "02/03/2024", text: "Aprendendo a estilizar" },
+    { year: "25/03/2024", text: "Aprendendo a organizar os arquivos css" },
+    { year: "01/04/2024", text: "Aprendendo animações" },
   ]
 
   },
@@ -77,9 +77,9 @@ const skills = [
       "Manipulação de DOM, consumo de APIs, lógica de interface e integrações.",
     image: jsLogo,
     timeline: [
-    { year: "2023", text: "Lógica e scripts iniciais" },
-    { year: "2024", text: "Automação e Flask" },
-    { year: "2025", text: "APIs e integrações" },
+    { year: "01/01/2024", text: "Lógica e scripts iniciais" },
+    { year: "30/04/2024", text: "Modulos" },
+    { year: "20/07/2024", text: "APIs e integrações" },
   ]
   },
   {
@@ -91,9 +91,9 @@ const skills = [
       "Componentização, hooks, Vite e construção de interfaces modernas.",
     image: reactLogo,
     timeline: [
-    { year: "2023", text: "Lógica e scripts iniciais" },
-    { year: "2024", text: "Automação e Flask" },
-    { year: "2025", text: "APIs e integrações" },
+    { year: "05/12/2025", text: "Entendendo o React" },
+    { year: "20/01/2026", text: "Criando minha primeira aplicação em React" },
+    { year: "30/02/2026", text: "Aprendendo Modulos React" },
   ]
   },
   {
@@ -104,9 +104,9 @@ const skills = [
     description: "Base de programação, estruturas e aplicações desktop.",
     image: cLogo,
     timeline: [
-    { year: "2023", text: "Lógica e scripts iniciais" },
-    { year: "2024", text: "Automação e Flask" },
-    { year: "2025", text: "APIs e integrações" },
+    { year: "16/05/2023", text: "Lógica e scripts iniciais" },
+    { year: "17/08/2023", text: "Aplicando em arduino" },
+    { year: "31/09/2023", text: "Começando projeto fisico em C++ trena digital" },
   ]
   },
   {
@@ -117,9 +117,9 @@ const skills = [
     description: "Aplicações desktop, lógica OO e fundamentos de games.",
     image: cSharperLogo,
     timeline: [
-    { year: "2023", text: "Lógica e scripts iniciais" },
-    { year: "2024", text: "Automação e Flask" },
-    { year: "2025", text: "APIs e integrações" },
+    { year: "05/05/2022", text: "Lógica e scripts iniciais" },
+    { year: "09/06/2025", text: "Estudando Documentação e entendendo o conceito de game" },
+    { year: "22/08/2025", text: "Criando um jogo" },
   ]
   },
 ];

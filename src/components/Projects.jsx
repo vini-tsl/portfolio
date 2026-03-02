@@ -13,8 +13,8 @@ const projects = [
     description: "Site de ajuda para musculação com plano personalizado.",
     tech: "Flask, HTML, CSS, JavaScript",
     image: helpMuscleImg,
-    site: "#",
-    code: "#",
+    site: "",
+    code: "https://github.com/vini-tsl/TimbuMuscle",
   },
   {
     id: 2,
@@ -22,8 +22,8 @@ const projects = [
     description: "Sistema de monitoramento e histórico de colmeias.",
     tech: "Flask, HTML, CSS, JavaScript",
     image: beeMonitorImg,
-    site: "#",
-    code: "#",
+    site: "",
+    code: "https://github.com/vini-tsl/Abelha",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const projects = [
     description: "Sistema para controle e registro de vendas.",
     tech: "Flask, HTML, CSS, JavaScript",
     image: wlLojasImg,
-    site: "#",
+    site: "",
     code: "#",
   },
 ];
