@@ -1,25 +1,8 @@
-/* ===== RESPONSIVO ABOUT ===== */
-
-@media (max-width: 900px) {
-  .highlights-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .counters-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .counters-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ================= RESPONSIVO ================= */
-
+/* ================================================= */
+/* ================== 1200px ======================= */
+/* ================================================= */
 @media (max-width: 1200px) {
+
   .container {
     max-width: 900px;
   }
@@ -38,11 +21,74 @@
   }
 
   .hero-with-photo::before {
-    display: none; /* remove linha no mobile */
+    display: none;
   }
 }
 
+
+/* ================================================= */
+/* ================== 900px ======================== */
+/* ================================================= */
+@media (max-width: 900px) {
+
+  /* ABOUT */
+  .highlights-grid,
+  .workstyle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .counters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* CONTACTS */
+  .contacts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .project-card {
+    height: 220px;
+  }
+
+  .project-title h3 {
+    font-size: 20px;
+  }
+
+  /* MODAL */
+  .project-modal {
+    padding: 30px;
+  }
+
+  .modal-layout {
+    flex-direction: column;
+  }
+
+  .modal-image img {
+    height: auto;
+  }
+
+  .modal-buttons {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* ================================================= */
+/* ================== 800px ======================== */
+/* ================================================= */
 @media (max-width: 800px) {
+
   h1 {
     font-size: 34px;
   }
@@ -65,16 +111,75 @@
     grid-template-columns: 1fr;
   }
 
-  .skills-grid {
-    justify-content: center;
-  }
-
+  .skills-grid,
   .hability-list {
     justify-content: center;
   }
 }
 
+
+/* ================================================= */
+/* ================== 600px ======================== */
+/* ================================================= */
+@media (max-width: 600px) {
+
+  /* ABOUT */
+  .counters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tl-milestone {
+    width: 50px;
+  }
+
+  /* HERO */
+  .hero-with-photo {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .hero {
+    align-items: center;
+  }
+
+  .perfil {
+    width: 180px;
+    height: 180px;
+    animation-duration: 4.5s;
+  }
+
+  .buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* CONTACTS */
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* MOTION REDUCTION */
+  body {
+    animation: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+
+/* ================================================= */
+/* ================== 500px ======================== */
+/* ================================================= */
 @media (max-width: 500px) {
+
   .container {
     padding: 12px;
   }
@@ -93,73 +198,86 @@
   }
 }
 
-@media (max-width: 600px) {
-  .hero-with-photo {
-    flex-direction: column-reverse;
+
+/* ================================================= */
+/* ================== 480px ======================== */
+/* ================================================= */
+@media (max-width: 480px) {
+
+  section {
+    min-height: 0vh;
+  }
+
+  h2 {
+    margin-top: 30px;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    height: 200px;
+    border-radius: 16px;
+  }
+
+  .project-title {
+    top: 15px;
+    left: 15px;
+  }
+
+  .project-title h3 {
+    font-size: 18px;
+  }
+
+  /* MODAL */
+  .project-modal {
+    width: 95%;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .modal-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .modal-info {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .modal-info h2 {
     text-align: center;
-    gap: 24px;
+    margin-bottom: 10px;
+    font-size: 20px;
   }
 
-  .hero {
+  .modal-info p,
+  .modal-info .tech {
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
     align-items: center;
+    gap: 12px;
+    padding-bottom: 30px;
+    margin-top: 30px;
   }
 
-  .perfil {
-    width: 180px;
-    height: 180px;
-    animation-duration: 4.5s; /* glow mais suave no mobile */
+  .modal-buttons .btn {
+    width: 100%;
+    text-align: center;
   }
 
-  .buttons {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 900px) {
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .contacts-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .contacts-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-/* ===== REDUZ MOTION NO MOBILE ===== */
-
-@media (max-width: 600px) {
-  body {
-    animation: none;
-  }
-
-  .scroll-indicator {
-    display: none;
-  }
-}
-
-
-/* ================= RESPONSIVO ================= */
-
-@media (max-width: 900px) {
-  .workstyle-grid {
-    grid-template-columns: 1fr;
+  .modal-close {
+    font-size: 18px;
+    top: 15px;
+    right: 15px;
   }
 
 }

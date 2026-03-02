@@ -89,29 +89,34 @@ function WorkStyle() {
 
 const data = [
   {
+    id: 1,
     year: "2022",
     icon: <FaPython />,
-    title: "Início dos estudos em Python",
+    title: "Estudos em Python",
   },
   {
+    id: 2,
     year: "2023",
     icon: <FaSchool />,
-    title: "Entrada no Ensino Técnico em Informática no IFPB",
+    title: "T.I no IFPB",
   },
   {
+    id: 3,
     year: "2024",
     icon: <FaServer />,
-    title: "Criaçôes de Projetos Web com Flask",
+    title: "Projetos Web com Flask",
   },
   {
+    id: 4,
     year: "2025",
     icon: <FaReact />,
-    title: "Estudando React + APIs",
+    title: "Estudo de React + APIs",
   },
-  {
+  { 
+    id: 5,
     year: "2026",
     icon: <FaUniversity />,
-    title: "Entrada na Faculdade ADS na UNIPÊ",
+    title: "ADS na UNIPÊ",
   },
 ];
 
@@ -122,7 +127,7 @@ export function TimelineInteractive() {
     <div className="timeline-interactive">
       {data.map((item, i) => (
         <div
-          key={item.year}
+          key={item.id}
           role="button"
           tabIndex={0}
           className={`

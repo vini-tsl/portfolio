@@ -46,7 +46,7 @@ function App() {
   }, []);
 
   const [text] = useTypewriter({
-    words: ["Sou Vinicius", "Desenvolvedor Backend", "Desenvolvedor Frontend"],
+    words: ["Sou Vinicius", "Sou Desenvolvedor Backend", "E Desenvolvedor Frontend"],
     loop: true,
     delaySpeed: 1600,
     typeSpeed: 70,

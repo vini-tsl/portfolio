@@ -1,93 +1,127 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { createPortal } from "react-dom";
+
+import helpMuscleImg from "../assets/images/helpmuscle.png";
+import beeMonitorImg from "../assets/images/beemonitor.png";
+import wlLojasImg from "../assets/images/wlproducao.png";
 
 const projects = [
   {
+    id: 1,
     name: "HelpMuscle",
-    description: "Site de ajuda para musculação",
+    description: "Site de ajuda para musculação com plano personalizado.",
     tech: "Flask, HTML, CSS, JavaScript",
-    site: "https://seusite.com",
-    code: "https://github.com/seurepositorio",
+    image: helpMuscleImg,
+    site: "#",
+    code: "#",
   },
   {
+    id: 2,
     name: "BeeMonitor",
-    description: "Sistema de registro de histórico de colmeias",
+    description: "Sistema de monitoramento e histórico de colmeias.",
     tech: "Flask, HTML, CSS, JavaScript",
-    site: "https://seusite.com",
-    code: "https://github.com/seurepositorio",
+    image: beeMonitorImg,
+    site: "#",
+    code: "#",
   },
   {
-    name: "WL Lojas",
-    description: "Sistema para registro de vendas de produtos",
-    tech: "Python, Flask",
-    site: "https://seusite.com",
-    code: "https://github.com/seurepositorio",
+    id: 3,
+    name: "LC Limpezas",
+    description: "Sistema para controle e registro de vendas.",
+    tech: "Flask, HTML, CSS, JavaScript",
+    image: wlLojasImg,
+    site: "#",
+    code: "#",
   },
 ];
 
-// Variantes de animação (profissional)
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 },
-};
-
 function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  // 🔥 Bloqueia scroll ao abrir modal
+  useEffect(() => {
+    document.body.style.overflow = selectedProject ? "hidden" : "";
+  }, [selectedProject]);
+
   return (
-    <div id="projects">
+    <>
       <h2>Meus Projetos</h2>
 
-      <motion.div
-        className="projects-grid"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        {projects.map((project, index) => (
+      <div className="projects-grid">
+        {projects.map((project) => (
           <motion.div
+            key={project.id}
+            layoutId={`card-${project.id}`}
             className="project-card"
-            key={index}
-            variants={item}
+            onClick={() => setSelectedProject(project)}
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 200 }}
           >
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            <p>
-              <strong>Tecnologias:</strong> {project.tech}
-            </p>
-
-            <div className="buttons">
-              <a
-                href={project.site}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn"
-              >
-                Ver site
-              </a>
-              <a
-                href={project.code}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn outline"
-              >
-                Código
-              </a>
+            <img src={project.image} alt={project.name} />
+            <div className="project-title">
+              <h3>{project.name}</h3>
             </div>
           </motion.div>
         ))}
-      </motion.div>
-    </div>
+      </div>
+
+      {/* 🔥 MODAL */}
+      {createPortal(
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              className="project-modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProject(null)}
+            >
+              <motion.div
+                layoutId={`card-${selectedProject.id}`}
+                className="project-modal"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="modal-close"
+                  onClick={() => setSelectedProject(null)}
+                >
+                  ✕
+                </button>
+
+                <div className="modal-layout">
+                  <div className="modal-image">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.name}
+                    />
+                  </div>
+
+                  <div className="modal-info">
+                    <h2>{selectedProject.name}</h2>
+                    <p>{selectedProject.description}</p>
+
+                    <p className="tech">
+                      <strong>Tecnologias:</strong> {selectedProject.tech}
+                    </p>
+
+                    <div className="modal-buttons">
+                      <a href={selectedProject.site} className="btn">
+                        Ver site
+                      </a>
+                      <a href={selectedProject.code} className="btn outline">
+                        Código
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
+    </>
   );
 }
 
